@@ -1,0 +1,25 @@
+Lens setup: Fixed lens
+Lighting condition: Without backlight
+Magnification, M = 0.50711
+Focal length of the lens, f = 65 mm (average_lens_focal_length)
+Aperture = f/2.8 
+
+scaling=0.004
+Camera distance = 0.2m (average_focus_distance)
+Backward translation = -0.019m
+Forward translation = 0.021m
+
+Camera number: 13 (No. of tilt position)
+Camera offset angle (tilt angle) = 15 degree
+Stacking no. (No. of images in the stack) = 61
+Rotation step angle = 15 degree
+No. of Rotation step = 24
+
+max_focus_distance = average_focus_distance + forward_translation 
+min_focus_distance = average_focus_distance + backward_translation 
+        
+max_camera_focal_length = min_focus_distance*average_lens_focal_length/(min_focus_distance-average_lens_focal_length)
+min_camera_focal_length = max_focus_distance*average_lens_focal_length/(max_focus_distance-average_lens_focal_length)
+        
+Linear step size= (max_camera_focal_length - min_camera_focal_length) / stacking_number (No. of images in the stack)
+translate_lens_focal_length = (max_camera_focal_length - min_camera_focal_length) / stacking_number (No. of images in the stack)

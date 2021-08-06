@@ -1,0 +1,25 @@
+
+1. Open (double click on): ground_truth.blend
+2. Install and turn on the addon: Fixed_lens_addon_camera_pose_control.py
+3. Click on: 'viewport shading' on the the top for rendered view
+4. Click on: setup the scene
+5. Set camera number = 13
+6. Set camera offset angle = 15
+7. Set Camera distance = 0.2m (average_focus_distance)
+8. Set Backward translation = -0.019m
+9. Set Forward translation = 0.021m
+10. Setup the resolution X = 4320 and Y = 2880 (if not set already)
+11. Set step angle = 15 (if not set already)
+12. Set stacking number 61 (if not set already)
+13. Set Focal length = 65 mm
+14. Set Aperture = 2.8
+15. Disable Depth of Field
+16. Save the blender file
+17. Check all the parameters
+18. Click on render
+
+
+Insect: Agrilus Anxius
+Location: 0.000082, -0.001384, -0.000812 (m)
+Rotation: -364, -7.91, -504
+Scale: 0.004, 0.004, 0.004

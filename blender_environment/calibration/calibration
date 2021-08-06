@@ -1,0 +1,62 @@
+import bpy
+import math
+import numpy as np
+
+## Camera Ref: https://www.canon.com.au/camera-lenses/mp-e65mm-f-2-8-1-5x-macro
+##             https://www.canon.com.au/cameras/eos-5ds
+
+def main():
+    
+    bpy.data.worlds["World"].node_tree.nodes["Background"].inputs[0].default_value = (1, 1, 1, 1)
+
+    camera_data = bpy.data.cameras.new('camera')
+    camera_data.dof.use_dof = True
+    camera_data.dof.aperture_fstop = 2.8
+    camera_data.dof.aperture_blades = 6
+    cam = bpy.data.objects.new("camera", camera_data)
+
+    rx = 90*math.pi/180
+    ry = 0*math.pi/180
+    rz = 0*math.pi/180
+    
+    cam.location = [0, -0.124, 0]
+    cam.rotation_euler = [rx,ry,rz]
+    #bpy.data.cameras['camera'].lens = 65
+    focallength = 65
+    
+    bpy.context.collection.objects.link(cam)
+    bpy.context.view_layer.objects.active = cam
+    bpy.context.scene.camera = bpy.data.objects['camera']
+    
+    #frontlight_data = bpy.data.lights.new(name="frontlight", type='AREA')
+    #frontlight = bpy.data.objects.new(name="frontlight", object_data=frontlight_data)
+    
+    #frontlight.location = [0, -0.05, 0]
+    #frontlight.rotation_euler = [rx,ry,rz]
+    #bpy.data.lights['frontlight'].energy = 0.1
+    #bpy.data.lights['frontlight'].size = 0.1
+    
+    #bpy.context.collection.objects.link(frontlight)
+    #bpy.context.view_layer.objects.active = frontlight
+    
+    output_dir = 'D:/ANU/ENGN4200/synthetic_images/calibration/rotated/ver2/'
+    output_name = 'Step %d.jpg'
+    count = 0
+    
+    for n in np.arange(0,10,0.2):
+        count = count + 1;
+        camera_data.dof.focus_distance = 0.118 + n/1000
+        bpy.data.cameras['camera'].lens = camera_data.dof.focus_distance * 1000 * focallength / \
+        (camera_data.dof.focus_distance * 1000 - focallength)
+        bpy.context.scene.render.filepath = output_dir + output_name % count
+        bpy.ops.render.render(write_still = True)
+        
+    #bpy.data.objects['camera'].select_set(True)
+    #bpy.data.objects['frontlight'].select_set(True)
+
+    #bpy.ops.object.delete()
+    
+    return
+
+if __name__ == '__main__':
+    main()

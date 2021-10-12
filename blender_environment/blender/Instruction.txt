@@ -1,0 +1,26 @@
+
+
+	1. Open (double click on): fixed_lens.blend
+	2. Install and turn on the addon: Fixed_lens_camera_pose_control.py
+	3. Click on: 'viewport shading' on the the top for rendered view
+	4. Import the 3D insect
+	5. Set the camera settings
+	6. Click on: setup the scene
+		1. Set camera number
+		2. Set camera offset angle
+		3. Set Camera distance
+		4. Set Backward translation
+		5. Set Forward translation
+	7. Save the blender file
+	8. Click on render
+
+	All settings used for the paper are listed in parameters.text
+
+	** To render insect in black light condition:
+	1. Select the insect
+	2. Select Material Properties
+	3. Under Surface, select Surface
+	4. Under Link, select Disconnect
+
+	** To render ground truth images:
+	1. Disable Depth of Field under Cameras
